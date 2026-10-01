@@ -6,7 +6,7 @@
 
 Cloudflare Worker 脚本代码下载地址：
 
-点此跳转（https://raw.githubusercontent.com/lsh8848/cm-Workers-CheckSocks5/refs/heads/main/_worker.js）
+点此跳转 [https://raw.githubusercontent.com/lsh8848/cm-Workers-CheckSocks5/refs/heads/main/_worker.js]
 
 前往并打开上方占位符中的 Worker 脚本代码链接，将代码全部复制备用。
 
@@ -36,9 +36,9 @@ Cloudflare Worker 脚本代码下载地址：
 
 请前往以下预设的代码文件下载地址获取基础代码文件：
 
-代码文件 下载地址1： 点此跳转（https://pan.xunlei.com/s/VP2pJfIQ5q9Db88hOf7c3bxjA1?pwd=9irw）
+代码文件 下载地址1： 点此跳转 [https://pan.xunlei.com/s/VP2pJfIQ5q9Db88hOf7c3bxjA1?pwd=9irw]
 
-代码文件 下载地址2： [点此跳转https://pan.quark.cn/s/49e2988aa42d#/list/share]
+代码文件 下载地址2： 点此跳转 [https://pan.quark.cn/s/49e2988aa42d#/list/share]
 
 下载完成后，在你的 GitHub 仓库主页点击 Add file ➔ Upload files，将对应的核心运行脚本（如 vpngate.py、requirements.txt）以及 web/ 静态模板文件上传并点击 Commit changes 保存。
 
