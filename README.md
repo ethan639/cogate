@@ -7,10 +7,15 @@
 Cloudflare Worker 脚本代码下载地址： [点此跳转https://raw.githubusercontent.com/lsh8848/cm-Workers-CheckSocks5/refs/heads/main/_worker.js]
 
 前往并打开上方占位符中的 Worker 脚本代码链接，将代码全部复制备用。
+
 登录你的 Cloudflare 控制台。
+
 在左侧导航进入 Workers 和 Pages ➔ 点击 创建应用程序 ➔ 选择 创建 Worker。
+
 为 Worker 命名后点击右下角 部署。
+
 部署完成后点击 编辑代码，清空原有代码，将第 1 步复制的代码粘贴进去，点击右上角 部署 保存。
+
 记下生成的测速域名：在 Worker 详情页记下分配的默认域名（例如 xxxx.xxxx.workers.dev），或者在 设置 ➔ 触发器 中绑定的自定义域名。该域名在后续步骤中将作为 Worker 检测域名 填入代码。
 
 第二步：新建 GitHub 仓库与上传代码
@@ -18,9 +23,13 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转https://raw.githubuse
 1. 新建 GitHub 仓库
 
 登录 GitHub，点击右上角 + ➔ New repository。
+
 仓库名称自定义（例如 gate）。
+
 仓库类型必须选择 Public（公开）。
+
 勾选 Add a README file，点击 Create repository 创建完成。
+
 2. 源码下载与普通文件上传
 
 请前往以下预设的代码文件下载地址获取基础代码文件：
@@ -34,14 +43,21 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转https://raw.githubuse
 3. 手动创建无法直接上传的工作流文件（必做）
 
 ⚠️ 注意事项： GitHub 网页端不支持直接拖拽上传带点开头的路径（.github/），因此必须通过网页端新建文件并手动录入路径。
+
 在仓库根目录点击 Add file ➔ Create new file。
+
 在文件名输入框中输入路径及文件名：.gitignore。
+
 用记事本打开.gitignore，完整粘贴忽略规则代码，
+
 粘贴完成后，点击页面最下方的 Commit changes 保存文件。
 
 在仓库根目录再次点击 Add file ➔ Create new file。
+
 在文件名输入框中输入路径及文件名：.github/workflows/check.yml（每输入一个斜杠 / 系统会自动生成目录结构）。
+
 用记事本打开check.yml，完整粘贴工作流配置代码，
+
 粘贴完成后，点击页面最下方的 Commit changes 保存文件。
 
 第三步：GitHub Actions 权限与 Pages 静态托管设置
@@ -49,14 +65,19 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转https://raw.githubuse
 1. 开启 Actions 读写权限
 
 点击仓库顶部的 Settings。
+
 在左侧菜单点击 Actions ➔ General。
+
 向下滑动找到 Workflow permissions 区域，将选项勾选为：
+
 👉 Read and write permissions。
+
 点击 Save 保存设置。
 
 2. 设置 GitHub Pages 静态站点
 
 在仓库的 Settings 页面中，左侧点击 Pages。
+
 在 Build and deployment 区域，确保 Source 选为 github actions。
 
 第四步：获取优选域名并修改核心代码配置
@@ -92,14 +113,19 @@ EDGE_HOSTS = [
     if h.strip()
 ]
 位置三：必须配置用户自己的 edgetunnel 节点信息（文件第 525 ~ 526 行左右，必做项）
+
 特别注意：代码内预留的 EDT_UUID 和 EDT_DOMAIN 是演示参数。你必须替换为自己实际部署的 edgetunnel 节点域名和对应的 UUID 密钥，否则自动生成的 sub.txt 订阅链接将无法连接使用！
 
 edgetunnel部署代码：【点此跳转https://raw.githubusercontent.com/cmliu/edgetunnel/refs/heads/main/_worker.js】
 
 # 原代码第 338-341 行左右：
+
 EDT_UUID = os.environ.get("EDT_UUID", "填入你自己edgetunnel的UUID")
+
 EDT_DOMAIN = os.environ.get("EDT_DOMAIN", "填入你自己edgetunnel绑定的节点域名")
+
 EDT_FINGERPRINT = os.environ.get("EDT_FINGERPRINT", "chrome")
+
 三处关键参数修改核对无误后，滑动到页面最下方点击 Commit changes 保存提交。
 
 第五步：启动构建并获取两大生成页面
@@ -116,6 +142,7 @@ EDT_FINGERPRINT = os.environ.get("EDT_FINGERPRINT", "chrome")
 工作流完成后，GitHub Pages 会自动发布生成两个访问页面（将下方链接中的 <username> 替换为你的 GitHub 用户名，<repository> 替换为你的仓库名称）：
 
 🌐 页面一：节点前端展示与下载页面（GitHub Pages 网址）
+
 用于直接在浏览器端实时查看经过测速的节点列表、延迟、带宽，并可直接下载 .ovpn 配置文件：
 
 https://你的GitHub用户名.github.io/仓库名/
