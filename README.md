@@ -15,11 +15,13 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转]
 第二步：新建 GitHub 仓库与上传代码
 
 1. 新建 GitHub 仓库
+
 登录 GitHub，点击右上角 + ➔ New repository。
 仓库名称自定义（例如 gate）。
 仓库类型必须选择 Public（公开）。
 勾选 Add a README file，点击 Create repository 创建完成。
 2. 源码下载与普通文件上传
+
 请前往以下预设的代码文件下载地址获取基础代码文件：
 
 代码文件 下载地址1： [点此跳转]
@@ -27,6 +29,7 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转]
 下载完成后，在你的 GitHub 仓库主页点击 Add file ➔ Upload files，将对应的核心运行脚本（如 vpngate.py、requirements.txt）以及 web/ 静态模板文件上传并点击 Commit changes 保存。
 
 3. 手动创建无法直接上传的工作流文件（必做）
+
 ⚠️ 注意事项： GitHub 网页端不支持直接拖拽上传带点开头的路径（.github/），因此必须通过网页端新建文件并手动录入路径。
 在仓库根目录点击 Add file ➔ Create new file。
 在文件名输入框中输入路径及文件名：.gitignore。
@@ -41,12 +44,15 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转]
 第三步：GitHub Actions 权限与 Pages 静态托管设置
 
 1. 开启 Actions 读写权限
+
 点击仓库顶部的 Settings。
 在左侧菜单点击 Actions ➔ General。
 向下滑动找到 Workflow permissions 区域，将选项勾选为：
 👉 Read and write permissions。
 点击 Save 保存设置。
+
 2. 设置 GitHub Pages 静态站点
+
 在仓库的 Settings 页面中，左侧点击 Pages。
 在 Build and deployment 区域，确保 Source 选为 github actions。
 
@@ -63,11 +69,14 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转]
 打开仓库根目录下的 vpngate.py 文件，点击右上角的 ✏️ 铅笔图标进行在线编辑，必须严格修改以下三处配置：
 
 位置一：替换 Worker 测速检测端（文件第 52 ~ 55 行左右）
+
 找到定义 WORKER_CHECK_URL 的代码行，将默认域名 check.helei.kdns.fr 替换为你第一步部署完成的 Cloudflare Worker 域名（保留前面的 https:// 以及末尾的 /check?sstp=vpn:vpn@）：
 
 # 原代码第 52-55 行左右：
 WORKER_CHECK_URL = os.environ.get("CHECK_WORKER", "https://你的Worker域名/check?sstp=vpn:vpn@")
+
 位置二：替换 Cloudflare 优选域名池（文件第 461 ~ 463 行左右）
+
 找到定义 EDGE_HOSTS 的代码段，这里是 edgetunnel 的入口优选地址池。将双引号内由逗号分隔的默认域名（如 saas.072159.xyz:443,...）替换为你在优选网站获取到的最新域名或 IP，每个地址后必须带上 :443 端口：
 
 # 原代码第 276-284 行左右：
@@ -107,7 +116,9 @@ EDT_FINGERPRINT = os.environ.get("EDT_FINGERPRINT", "chrome")
 用于直接在浏览器端实时查看经过测速的节点列表、延迟、带宽，并可直接下载 .ovpn 配置文件：
 
 https://你的GitHub用户名.github.io/仓库名/
+
 📋 页面二：复制内容并粘贴到 EDG 后台的专用网页
+
 打开此页面后，可直接全选复制页面中的节点配置文本，然后粘贴进 EDG 后台系统：
 
 https://你的GitHub用户名.github.io/仓库名/hosts.txt
