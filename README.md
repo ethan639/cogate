@@ -104,6 +104,7 @@ WORKER_CHECK_URL = os.environ.get("CHECK_WORKER", "https://你的Worker域名/ch
 找到定义 EDGE_HOSTS 的代码段，这里是 edgetunnel 的入口优选地址池。将双引号内由逗号分隔的默认域名（如 saas.072159.xyz:443,...）替换为你在优选网站获取到的最新域名或 IP，每个地址后必须带上 :443 端口：
 
 # 原代码第 276-284 行左右：
+
 EDGE_HOSTS = [
     h.strip()
     for h in os.environ.get(
@@ -112,6 +113,7 @@ EDGE_HOSTS = [
     ).split(",")
     if h.strip()
 ]
+
 位置三：必须配置用户自己的 edgetunnel 节点信息（文件第 525 ~ 526 行左右，必做项）
 
 特别注意：代码内预留的 EDT_UUID 和 EDT_DOMAIN 是演示参数。你必须替换为自己实际部署的 edgetunnel 节点域名和对应的 UUID 密钥，否则自动生成的 sub.txt 订阅链接将无法连接使用！
