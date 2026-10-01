@@ -11,7 +11,9 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转]
 为 Worker 命名后点击右下角 部署。
 部署完成后点击 编辑代码，清空原有代码，将第 1 步复制的代码粘贴进去，点击右上角 部署 保存。
 记下生成的测速域名：在 Worker 详情页记下分配的默认域名（例如 xxxx.xxxx.workers.dev），或者在 设置 ➔ 触发器 中绑定的自定义域名。该域名在后续步骤中将作为 Worker 检测域名 填入代码。
+
 第二步：新建 GitHub 仓库与上传代码
+
 1. 新建 GitHub 仓库
 登录 GitHub，点击右上角 + ➔ New repository。
 仓库名称自定义（例如 gate）。
@@ -36,7 +38,8 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转]
 用记事本打开check.yml，完整粘贴工作流配置代码，
 粘贴完成后，点击页面最下方的 Commit changes 保存文件。
 
-三、步骤三：GitHub Actions 权限与 Pages 静态托管设置
+第三步：GitHub Actions 权限与 Pages 静态托管设置
+
 1. 开启 Actions 读写权限
 点击仓库顶部的 Settings。
 在左侧菜单点击 Actions ➔ General。
@@ -46,12 +49,17 @@ Cloudflare Worker 脚本代码下载地址： [点此跳转]
 2. 设置 GitHub Pages 静态站点
 在仓库的 Settings 页面中，左侧点击 Pages。
 在 Build and deployment 区域，确保 Source 选为 github actions。
-四、步骤四：获取优选域名并修改核心代码配置
+
+第四步：获取优选域名并修改核心代码配置
+
 1. 获取最新优选域名
+2. 
 打开优选域名提供网址，筛选出测速优异的 Cloudflare 优选 IP 或优选域名备用：
 
 优选域名提供网址： [https://bestcf.fxxk.dedyn.io/]
+
 2. 在 vpngate.py 中修改三处核心配置
+3. 
 打开仓库根目录下的 vpngate.py 文件，点击右上角的 ✏️ 铅笔图标进行在线编辑，必须严格修改以下三处配置：
 
 位置一：替换 Worker 测速检测端（文件第 52 ~ 55 行左右）
@@ -82,13 +90,17 @@ EDT_DOMAIN = os.environ.get("EDT_DOMAIN", "填入你自己edgetunnel绑定的节
 EDT_FINGERPRINT = os.environ.get("EDT_FINGERPRINT", "chrome")
 三处关键参数修改核对无误后，滑动到页面最下方点击 Commit changes 保存提交。
 
-五、步骤五：启动构建并获取两大生成页面
+第五步：启动构建并获取两大生成页面
+
 1. 手动运行 Actions 任务
+
 点击仓库顶部的 Actions 选项卡。
 在左侧 Workflows 列表点击 VPN Gate Node Check。
 点击右侧的 Run workflow 按钮，弹出菜单中再次点击绿色的 Run workflow 触发运行。
 等待 1-3 分钟，当工作流出现绿色对号 ✅ 标识，即表示节点检测和页面生成已经完成。
+
 2. 获取两大访问地址
+
 工作流完成后，GitHub Pages 会自动发布生成两个访问页面（将下方链接中的 <username> 替换为你的 GitHub 用户名，<repository> 替换为你的仓库名称）：
 
 🌐 页面一：节点前端展示与下载页面（GitHub Pages 网址）
