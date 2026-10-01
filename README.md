@@ -28,7 +28,7 @@ Cloudflare Worker 脚本代码下载地址：
 
 仓库名称自定义（例如 gate）。
 
-仓库类型必须选择 Public（公开）。
+仓库类型必须选择 Public（公开）！！！。
 
 勾选 Add a README file，点击 Create repository 创建完成。
 
