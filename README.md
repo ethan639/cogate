@@ -106,12 +106,19 @@ WORKER_CHECK_URL = os.environ.get("CHECK_WORKER", "https://你的Worker域名/ch
 # 原代码第 276-284 行左右：
 
 EDGE_HOSTS = [
+
     h.strip()
+ 
     for h in os.environ.get(
+  
         "EDGE_HOSTS",
+  
         "填入优选域名1:443,填入优选域名2:443,填入优选域名3:443",
+
     ).split(",")
+
     if h.strip()
+
 ]
 
 位置三：必须配置用户自己的 edgetunnel 节点信息（文件第 525 ~ 526 行左右，必做项）
@@ -135,8 +142,11 @@ EDT_FINGERPRINT = os.environ.get("EDT_FINGERPRINT", "chrome")
 1. 手动运行 Actions 任务
 
 点击仓库顶部的 Actions 选项卡。
+
 在左侧 Workflows 列表点击 VPN Gate Node Check。
+
 点击右侧的 Run workflow 按钮，弹出菜单中再次点击绿色的 Run workflow 触发运行。
+
 等待 1-3 分钟，当工作流出现绿色对号 ✅ 标识，即表示节点检测和页面生成已经完成。
 
 2. 获取两大访问地址
@@ -154,4 +164,5 @@ https://你的GitHub用户名.github.io/仓库名/
 打开此页面后，可直接全选复制页面中的节点配置文本，然后粘贴进 EDG 后台系统：
 
 https://你的GitHub用户名.github.io/仓库名/hosts.txt
+
 🎉 部署完成： 后续系统会根据 check.yml 中的定时配置（每 30 分钟自动运行一次）持续抓取、测速并提交最新数据，两个前端网页也会自动无缝同步最新节点。
