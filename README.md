@@ -6,7 +6,7 @@
 
 Cloudflare Worker 脚本代码下载地址：
 
-[点此跳转https://raw.githubusercontent.com/lsh8848/cm-Workers-CheckSocks5/refs/heads/main/_worker.js]
+点此跳转[ https://raw.githubusercontent.com/lsh8848/cm-Workers-CheckSocks5/refs/heads/main/_worker.js ]
 
 前往并打开上方占位符中的 Worker 脚本代码链接，将代码全部复制备用。
 
