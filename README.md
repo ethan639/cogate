@@ -128,7 +128,7 @@ EDGE_HOSTS = [
 
 特别注意：代码内预留的 EDT_UUID 和 EDT_DOMAIN 是演示参数。你必须替换为自己实际部署的 edgetunnel 节点域名和对应的 UUID 密钥，否则自动生成的 sub.txt 订阅链接将无法连接使用！
 
-edgetunnel部署代码：点此跳转[https://raw.githubusercontent.com/cmliu/edgetunnel/refs/heads/main/_worker.js]
+edgetunnel部署代码：点此跳转 [https://raw.githubusercontent.com/cmliu/edgetunnel/refs/heads/main/_worker.js]
 
 # 原代码第 338-341 行左右：
 
