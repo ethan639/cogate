@@ -162,7 +162,7 @@ EDT_FINGERPRINT = os.environ.get("EDT_FINGERPRINT", "chrome")
 
 https://你的GitHub用户名.github.io/仓库名/
 
-如：https://ethan639.github.io/cogate/
+如：https://jerylihub.github.io/gate/
 
 📋 页面二：复制内容并粘贴到 EDG 后台的专用网页
 
@@ -170,6 +170,6 @@ https://你的GitHub用户名.github.io/仓库名/
 
 https://你的GitHub用户名.github.io/仓库名/hosts.txt
 
-如：https://ethan639.github.io/cogate/hosts.txt
+如：https://jerylihub.github.io/gate/hosts.txt
 
 🎉 部署完成： 后续系统会根据 check.yml 中的定时配置（每 30 分钟自动运行一次）持续抓取、测速并提交最新数据，两个前端网页也会自动无缝同步最新节点。
