@@ -4,7 +4,9 @@
 
 首先需要部署一个低延迟的边缘检测端，用于辅助节点测速和连通性验证。
 
-Cloudflare Worker 脚本代码下载地址： [点此跳转https://raw.githubusercontent.com/lsh8848/cm-Workers-CheckSocks5/refs/heads/main/_worker.js]
+Cloudflare Worker 脚本代码下载地址：
+
+[点此跳转https://raw.githubusercontent.com/lsh8848/cm-Workers-CheckSocks5/refs/heads/main/_worker.js]
 
 前往并打开上方占位符中的 Worker 脚本代码链接，将代码全部复制备用。
 
