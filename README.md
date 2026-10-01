@@ -99,6 +99,7 @@ Cloudflare Worker 脚本代码下载地址：
 找到定义 WORKER_CHECK_URL 的代码行，将默认域名 check.helei.kdns.fr 替换为你第一步部署完成的 Cloudflare Worker 域名（保留前面的 https:// 以及末尾的 /check?sstp=vpn:vpn@）：
 
 # 原代码第 52-55 行左右：
+
 WORKER_CHECK_URL = os.environ.get("CHECK_WORKER", "https://你的Worker域名/check?sstp=vpn:vpn@")
 
 位置二：替换 Cloudflare 优选域名池（文件第 461 ~ 463 行左右）
@@ -127,7 +128,7 @@ EDGE_HOSTS = [
 
 特别注意：代码内预留的 EDT_UUID 和 EDT_DOMAIN 是演示参数。你必须替换为自己实际部署的 edgetunnel 节点域名和对应的 UUID 密钥，否则自动生成的 sub.txt 订阅链接将无法连接使用！
 
-edgetunnel部署代码：点此跳转【https://raw.githubusercontent.com/cmliu/edgetunnel/refs/heads/main/_worker.js】
+edgetunnel部署代码：点此跳转[https://raw.githubusercontent.com/cmliu/edgetunnel/refs/heads/main/_worker.js]
 
 # 原代码第 338-341 行左右：
 
